@@ -1,0 +1,25 @@
+/*Given a string, return the sum of the numbers appearing in the string, ignoring all other characters. 
+A number is a series of 1 or more digit chars in a row.(Note: Character.isDigit(char) tests if a char is one of the chars '0', '1',.. 
+Integer.parseInt(string) converts a string to an int.)
+
+sumNumbers("abc123xyz") → 123
+sumNumbers("aa11b33") → 44
+sumNumbers("7 11") → 18*/
+
+public int sumNumbers(String str) {
+  int cn=0,sum=0;char ch;
+  for(int i=0;i<str.length();i++){
+  ch=str.charAt(i);
+  if(Character.isDigit(ch)){
+    cn=(cn*10)+Integer.parseInt(str.substring(i,i+1));
+  }
+  else{
+      sum=sum+cn;
+      cn=0;
+    }
+  }
+  if(cn!=0){
+    sum=sum+cn;
+  }
+  return sum;
+}
